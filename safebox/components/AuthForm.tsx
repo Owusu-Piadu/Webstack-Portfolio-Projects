@@ -17,8 +17,8 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-//import { createAccount, signInUser } from "@/lib/actions/user.actions";
-//import OtpModal from "@/components/OTPModal";
+import { createAccount, signInUser } from "@/lib/actions/user.actions";
+import OtpModal from "@/components/OTPModal";
 
 type FormType = "sign-in" | "sign-up";
 
@@ -27,7 +27,7 @@ const authFormSchema = (formType: FormType) => {
     email: z.string().email(),
     fullName:
       formType === "sign-up"
-        ? z.string().min(4).max(50)
+        ? z.string().min(2).max(50)
         : z.string().optional(),
   });
 };
